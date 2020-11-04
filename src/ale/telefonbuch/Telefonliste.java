@@ -8,5 +8,5 @@ package ale.telefonbuch;
  *
  */
 public class Telefonliste {
-
+//ArrayList<TelefonEintrag>
 }

@@ -27,13 +27,13 @@ public class Telefonliste {
 	
 
 	
-	private void addEntry(String name, String number) {
-//		telefonliste.add(name);
-		eintrag[entries++] = name;
+	public void addEntry(String name, String number) {
+		telefonliste.add(name);
+//		eintrag[entries++] = name;
 	}
 	
-	private void modifyEntry(TelefonEintrag name, TelefonEintrag number, TelefonEintrag newname, TelefonEintrag newnumber) {
-		
+	public boolean modifyEntry(String name, String number, String newname, String newnumber) {
+		return false;
 	}
 	
 	private void removeEntry(TelefonEintrag name, TelefonEintrag number) {

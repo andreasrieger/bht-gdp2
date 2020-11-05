@@ -11,41 +11,43 @@ import java.util.ArrayList;
  */
 public class Telefonliste {
 	
-	public TelefonEintrag[] eintrag;
-	private int entries = 0;
 	
 	private ArrayList<TelefonEintrag> telefonliste;
-//	private ArrayList<TelefonEintrag> telefonliste = new ArrayList<>();
 	
 	public Telefonliste() {
 		telefonliste = new ArrayList<>();
 	}
-
+	
 	public Telefonliste(ArrayList<TelefonEintrag> telefonliste) {
-		
+		this.telefonliste = telefonliste;
 	}
-	
 
-	
+    public TelefonEintrag[] getEntries() {
+        return telefonliste.toArray(new TelefonEintrag[0]);
+    }
+    
 	public void addEntry(String name, String number) {
-		telefonliste.add(name);
-//		eintrag[entries++] = name;
+		telefonliste.add(new TelefonEintrag(name, number));
 	}
 	
 	public boolean modifyEntry(String name, String number, String newname, String newnumber) {
-		return false;
+		TelefonEintrag newentry = new TelefonEintrag(newname, newnumber);
+		int index = telefonliste.indexOf(new TelefonEintrag(name, number));		
+		telefonliste.set(index, newentry);
+		return telefonliste.contains(newentry);
 	}
 	
-	private void removeEntry(TelefonEintrag name, TelefonEintrag number) {
-		
+	public boolean removeEntry(String name, String number) {
+		return telefonliste.remove(new TelefonEintrag(name, number));
 	}
 
-	private void searchByName(TelefonEintrag name, TelefonEintrag number) {
-		
+	public TelefonEintrag searchByName(String name) {
+		return telefonliste.get(telefonliste.indexOf(new TelefonEintrag(name, "")));
 	}
 
-	private void searchNameByNumber(TelefonEintrag name, TelefonEintrag number) {
-		
+	public TelefonEintrag searchNameByNumber(String number) {
+		return telefonliste.get(telefonliste.indexOf(new TelefonEintrag("", number)));
+
 	}
 	
 	public int size() {

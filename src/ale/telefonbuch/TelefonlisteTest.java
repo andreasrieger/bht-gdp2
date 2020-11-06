@@ -113,7 +113,10 @@ class TelefonlisteTest {
 
 		@Test
 		public void testModifyEntry() {
+			telefonlist.showAll(); //Andreas: test
 			assertTrue(telefonlist.modifyEntry("Frieda", "123456789", "Frieda Mustermann", "012345678"));
+			telefonlist.showAll(); //Andreas: test
+
 		}
 
 		@Test

@@ -1,101 +1,142 @@
-/**
- * 
- */
 package ale.telefonbuch;
 
 import java.util.ArrayList;
 
 /**
- * @author Andreas Rieger
- *
+ * This class is managing entries of type TelefonEintrag in an ArrayList
+ * 
+ * @author Andreas Rieger (s82456@beuth-hochschule.de)
+ * @version 1.0, 11/2020
  */
 public class Telefonliste {
-	
-	
+
 	private ArrayList<TelefonEintrag> telefonliste;
-	
+
+	/**
+	 * Constructor to generate an empty ArrayList<>
+	 */
 	public Telefonliste() {
 		telefonliste = new ArrayList<>();
 	}
-	
+
+	/**
+	 * Constructor to generate an ArrayList<> w/ entries of type TelefonEintrag
+	 * 
+	 * @param telefonliste
+	 */
 	public Telefonliste(ArrayList<TelefonEintrag> telefonliste) {
 		this.telefonliste = telefonliste;
 	}
 
-    public TelefonEintrag[] getEntries() {
-        return telefonliste.toArray(new TelefonEintrag[0]);
-    }
-    
+	/**
+	 * Method to create an array of all entries
+	 * 
+	 * @return TelefonEintrag[]
+	 */
+	public TelefonEintrag[] getEntries() {
+		return telefonliste.toArray(new TelefonEintrag[0]);
+	}
+
+	/**
+	 * Method to add an entry of type TelefonEintrag to ArrayList
+	 * 
+	 * @param name
+	 * @param number
+	 */
 	public void addEntry(String name, String number) {
 		telefonliste.add(new TelefonEintrag(name, number));
 	}
-	
+
+	/**
+	 * Method to modify an existing entry
+	 * 
+	 * @param name
+	 * @param number
+	 * @param newname
+	 * @param newnumber
+	 * @return true if entry was found, otherwise false
+	 */
 	public boolean modifyEntry(String name, String number, String newname, String newnumber) {
-		
-		boolean found = false;
-		
-//		if (telefonliste.contains(new TelefonEintrag(name, number))) {
-//		
-//			TelefonEintrag entry = telefonliste.get(telefonliste.indexOf(new TelefonEintrag(name, number)));	
-//			entry.setName(newname);
-//			entry.setNumber(newnumber);
-//			found = true;
-//		} else ;
-		
-		TelefonEintrag[] all = getEntries();
-		for (int i = 0; i < telefonliste.size(); i++) {
-			if (all[i].equals(new TelefonEintrag(newname, newnumber))) {
-				all[i].setName(newname);
-				all[i].setNumber(newnumber);
-				found = true;
-			} else ;
+
+		boolean found = telefonliste.contains(new TelefonEintrag(name, number));
+
+		if (found) {
+			TelefonEintrag entry = telefonliste.get(telefonliste.indexOf(new TelefonEintrag(name, number)));
+			entry.setName(newname);
+			entry.setNumber(newnumber);
+		} else
+			;
+
+		return found;
+
+	}
+
+	/**
+	 * Method to remove an existing entry
+	 * 
+	 * @param name
+	 * @param number
+	 */
+	public void removeEntry(String name, String number) {
+		telefonliste.remove(new TelefonEintrag(name, number));
+	}
+
+	/**
+	 * Method to search an entry by a given name
+	 * 
+	 * @param name
+	 * @return String of the found entry
+	 */
+	public String searchByName(String name) {
+		// geht bestimmt noch eleganter... lambda?
+		TelefonEintrag[] allentries = getEntries();
+		String found = "";
+		for (TelefonEintrag entry : allentries) {
+			if (entry.getName() == name) {
+				found = entry.toString();
+			}
 		}
 		return found;
-		
-	}
-	
-	public boolean removeEntry(String name, String number) {
-		return telefonliste.remove(new TelefonEintrag(name, number));
 	}
 
-	public String searchByName(String name) {
-//		return telefonliste.get(telefonliste.indexOf(new TelefonEintrag(name, "")));
-		TelefonEintrag[] all = getEntries();
-		String treffer = "";
-		for (int i = 0; i < telefonliste.size(); i++) {
-			if (all[i].getName() == name){
-				treffer = all[i].toString();
-				System.out.println(all[i]);
-			}
-			
-		}
-		return treffer;
-	}
-
+	/**
+	 * Method to search an entry by a given number
+	 * 
+	 * @param number
+	 * @return String of the found entry
+	 */
 	public String searchNameByNumber(String number) {
-//		return telefonliste.get(telefonliste.indexOf(new TelefonEintrag("", number)));
-		TelefonEintrag[] all = getEntries();
-		String treffer = "";
-		for (int i = 0; i < telefonliste.size(); i++) {
-			if (all[i].getName() == number){
-				treffer = all[i].toString();
-				System.out.println(all[i]);
+		TelefonEintrag[] allentries = getEntries();
+		String found = "";
+		for (TelefonEintrag entry : allentries) {
+			if (entry.getNumber() == number) {
+				found = entry.toString();
 			}
-			
 		}
-		return treffer;
+		return found;
 	}
-	
+
+	/**
+	 * Method to evaluate the ArrayList size
+	 * 
+	 * @return Size of ArrayList
+	 */
 	public int size() {
 		return telefonliste.size();
 	}
-	
+
+	/**
+	 * Method to remove all entries from ArrayList
+	 */
 	public void clear() {
 		telefonliste.clear();
 	}
-	
+
+	/**
+	 * Method to print all entries of ArrayList
+	 */
 	public void showAll() {
-		for (TelefonEintrag alle:telefonliste)
+		for (TelefonEintrag alle : telefonliste)
 			System.out.println("Entries: " + alle);
 	}
 }

@@ -52,4 +52,17 @@ public class TelefonEintrag {
     public void setName(String name) {
    	 this.name = name;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        //pruefen, dass o den Typ TelefonEintrag hat
+        if (!(this.getClass()==o.getClass())) {
+            return false;
+        }
+        //Richtiger Typ. Die cast Anweisung gelingt.
+        TelefonEintrag t = (TelefonEintrag) o;
+        //Zwei TelefonEintrag-Objekte sind gleich
+        //wenn ihre Attribute gleich sind
+        return this.name.equals(t.name) && this.number.contentEquals(t.number);
+    }
 }

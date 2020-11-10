@@ -4,7 +4,6 @@
 package ale.meinearraylist;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -55,8 +54,6 @@ class MeineArrayListTest {
 		@Test
 		public void testAddEntry() {
 			malist.addEntry("Bar");
-		//can be handy to check visually when the test fails
-//			System.out.println("MeineArrayListTestOneEntry.testAddEntry(): " + malist);
 			assertEquals(2, malist.size());
 		}
 		
@@ -82,14 +79,13 @@ class MeineArrayListTest {
 		public void testAddEntry() {
 			malist.addEntry("Omega");
 			assertEquals(4, malist.size());
+			System.out.println(malist);
 		}
 		
 		@Test
 		public void testRemoveEntry() {
 			malist.removeEntry("Foo");
 			assertEquals(3, malist.size());
-			malist.showAll();
-//			System.out.println("MeineArrayListTestMultiEntries.testAddEntry(): " + malist);
 		}
 	
 	}

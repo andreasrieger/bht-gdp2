@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ale.meinearraylist;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,7 +15,7 @@ import org.junit.jupiter.api.Test;
 class MeineArrayListTest {
 
 	
-	private MeineArrayList malist = new MeineArrayList<>(10, 10);
+	private MeineArrayList<String> malist = new MeineArrayList<>(10, 10);
 
 	@AfterEach
 	public void clearList() {
@@ -84,8 +81,9 @@ class MeineArrayListTest {
 		
 		@Test
 		public void testRemoveEntry() {
-			malist.removeEntry("Foo");
+			malist.removeEntry("Bar");
 			assertEquals(3, malist.size());
+			System.out.println("testRemoveEntry(): " + malist);
 		}
 	
 	}

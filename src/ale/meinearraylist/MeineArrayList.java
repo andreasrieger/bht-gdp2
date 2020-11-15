@@ -44,15 +44,24 @@ public class MeineArrayList<E> {
 	}
 
 	/**
-	 * Method to remove an element from array
+	 * Method to remove an element from array 
+	 * where this element equals attribute value s
 	 * 
 	 * @param e
 	 */
-	public void removeEntry(E e) {
+	public void removeEntry(String s) {
 		for (int i = 0; i < size; i++)
-			if (list[i] == e)
-				list[i] = null;
-		Arrays.sort(list, new ListElementComparator());
+//			if (list[i] == e)
+			
+//			if (list[i].equals(s)) // throws NullPointerException!
+			if (s.equals(list[i])) 
+			{
+//				list[i] = null;
+				for (int j = i; j < size; j++)
+					list[j] = list[j+1]; 
+			}
+		
+//		Arrays.sort(list, new ListElementComparator());
 	}
 
 	/**
@@ -108,27 +117,28 @@ public class MeineArrayList<E> {
 		return this.list;
 	}
 
-	/**
-	 * Helper class to make elements comparable
-	 * 
-	 * @author Andreas Rieger
-	 *
-	 */
-	public class ListElementComparator implements Comparator<E> {
-
-		@Override
-		public int compare(E o1, E o2) {
-
-			if (o1 == null && o2 == null) {
-				return 0;
-			}
-			if (o1 == null) {
-				return 1;
-			}
-			if (o2 == null) {
-				return -1;
-			}
-			return o1.toString().compareTo(o2.toString());
-		}
-	}
+//	/**
+//	 * Helper class to make elements comparable
+//	 * 
+//	 * @author Andreas Rieger
+//	 *
+//	 */
+//	public class ListElementComparator implements Comparator<E> {
+//
+//		@Override
+//		public int compare(E o1, E o2) {
+//
+//			if (o1 == null && o2 == null) {
+//				return 0;
+//			}
+//			if (o1 == null) {
+//				return 1;
+//			}
+//			if (o2 == null) {
+//				return -1;
+//			}
+//			return o1.toString().compareTo(o2.toString());
+//		}
+//	}
+	
 }

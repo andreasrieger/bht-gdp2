@@ -58,16 +58,20 @@ public class Telefonliste {
 	 */
 	public boolean modifyEntry(String name, String number, String newname, String newnumber) {
 
-		boolean found = telefonliste.contains(new TelefonEintrag(name, number));
+//		boolean found = telefonliste.contains(new TelefonEintrag(name, number));
+		int index = telefonliste.indexOf(new TelefonEintrag(name, number));
 
-		if (found) {
-			TelefonEintrag entry = telefonliste.get(telefonliste.indexOf(new TelefonEintrag(name, number)));
+//		if (found)
+		if (index >= 0)
+		{
+			TelefonEintrag entry = telefonliste.get(index);
 			entry.setName(newname);
 			entry.setNumber(newnumber);
+			return true;
 		} else
-			;
+			return false;
 
-		return found;
+//		return found;
 
 	}
 
@@ -88,12 +92,17 @@ public class Telefonliste {
 	 * @return String of the found entry
 	 */
 	public String searchByName(String name) {
-		// geht bestimmt noch eleganter... lambda?
-		TelefonEintrag[] allentries = getEntries();
+		
+//		TelefonEintrag[] allentries = getEntries();
 		String found = "";
-		for (TelefonEintrag entry : allentries) {
-			if (entry.getName() == name) {
+		
+//		for (TelefonEintrag entry : allentries)
+		for (TelefonEintrag entry : telefonliste) {
+//			if (entry.getName() == name) 
+			if (entry.getName().equals(name)) 
+			{
 				found = entry.toString();
+				return found;
 			}
 		}
 		return found;
@@ -106,11 +115,18 @@ public class Telefonliste {
 	 * @return String of the found entry
 	 */
 	public String searchNameByNumber(String number) {
-		TelefonEintrag[] allentries = getEntries();
+		
+//		TelefonEintrag[] allentries = getEntries();
 		String found = "";
-		for (TelefonEintrag entry : allentries) {
-			if (entry.getNumber() == number) {
+		
+//		for (TelefonEintrag entry : allentries) 
+		for (TelefonEintrag entry : telefonliste)			
+		{
+//			if (entry.getNumber() == number) {
+			if (entry.getNumber().equals(number)) 
+			{
 				found = entry.toString();
+				return found;
 			}
 		}
 		return found;

@@ -1,3 +1,8 @@
+/*
+ * Grundlagen der Programmierung II
+ * Lerneinheit: Abstrakte Klassen und Interfaces (AKI)
+ */
+
 package aki.firma;
 
 /**

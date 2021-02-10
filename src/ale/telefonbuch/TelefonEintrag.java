@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * Grundlagen der Programmierung II
+ * Lerneinheit: ArrayList<E> (ALE)
  */
 package ale.telefonbuch;
 

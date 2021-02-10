@@ -1,7 +1,8 @@
-package dud.htmlconv;
-/**
- * 
+/*
+ * Grundlagen der Programmierung II
+ * Lerneinheit: Dateien und Datenströme (DUD)
  */
+package dud.htmlconv;
 
 import java.io.*;
 

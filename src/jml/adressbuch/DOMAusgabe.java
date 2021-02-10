@@ -1,3 +1,7 @@
+/*
+ * Grundlagen der Programmierung II
+ * Lerneinheit: Java und XML (JML)
+ */
 package jml.adressbuch;
 
 import java.io.File;

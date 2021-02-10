@@ -1,3 +1,7 @@
+/*
+ * Grundlagen der Programmierung II
+ * Lerneinheit: ArrayList<E> (ALE)
+ */
 package ale.telefonbuch;
 
 import java.util.ArrayList;

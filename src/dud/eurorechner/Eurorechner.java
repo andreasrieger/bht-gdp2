@@ -1,3 +1,8 @@
+/*
+ * Grundlagen der Programmierung II
+ * Lerneinheit: Dateien und Datenströme (DUD)
+ */
+
 package dud.eurorechner;
 
 import java.io.*;

@@ -1,3 +1,7 @@
+/*
+ * Grundlagen der Programmierung II
+ * Lerneinheit: ArrayList<E> (ALE)
+ */
 package ale.telefonbuch;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

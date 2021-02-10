@@ -1,7 +1,8 @@
+/*
+ * Grundlagen der Programmierung II
+ * Lerneinheit: ArrayList<E> (ALE)
+ */
 package ale.meinearraylist;
-
-import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * a very simplified version of java.util.ArrayList
@@ -100,12 +101,13 @@ public class MeineArrayList<E> {
 	@Override
 	public String toString() {
 		// TODO: rework to create a nicer output
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < list.length; i++) {
-			sb.append(list[i]);
-		}
-		String output = sb.toString();
-		return output;
+//		StringBuilder sb = new StringBuilder();
+//		for (int i = 0; i < list.length; i++) {
+//			sb.append(list[i]);
+//		}
+//		String output = sb.toString();
+//		return output;
+		return this.list.toString();
 	}
 
 	/**

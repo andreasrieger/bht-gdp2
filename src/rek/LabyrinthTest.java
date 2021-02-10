@@ -1,5 +1,6 @@
-/**
- * 
+/*
+ * Grundlagen der Programmierung II
+ * Lerneinheit: Rekursion (REK)
  */
 package rek;
 
